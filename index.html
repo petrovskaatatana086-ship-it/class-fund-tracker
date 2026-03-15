@@ -7,22 +7,21 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2563eb">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <!-- Modern font Inter (яркий, четкий) -->
+    <!-- Modern font Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Новая палитра: насыщенные акценты, воздух, мягкие карточки */
         :root {
-            --bg-soft-blue: #e6f0fa;        /* очень светло-голубой фон */
+            --bg-soft-blue: #e6f0fa;
             --card-white: #ffffff;
-            --text-deep: #0f172a;            /* глубокий тёмный для максимальной контрастности */
+            --text-deep: #0f172a;
             --text-muted: #334155;
-            --border-light: #bfdbfe;          /* голубая дымка */
-            --accent-royal-blue: #2563eb;      /* насыщенный синий (вместо небесного) */
-            --accent-emerald: #10b981;         /* насыщенный изумрудный */
-            --accent-yellow-soft: #fef9c3;      /* светло-жёлтый для фона долгов */
+            --border-light: #bfdbfe;
+            --accent-royal-blue: #2563eb;
+            --accent-emerald: #10b981;
+            --accent-yellow-soft: #fef9c3;
             --accent-yellow-border: #fde047;
             --shadow-card: 0 10px 25px -5px rgba(37, 99, 235, 0.15), 0 8px 10px -6px rgba(37, 99, 235, 0.1);
             --shadow-hover: 0 20px 30px -10px rgba(37, 99, 235, 0.2);
@@ -54,16 +53,13 @@
             width: 100%;
         }
 
-        /* Главная карточка-контейнер */
         .app-card {
             background: var(--card-white);
             border-radius: var(--radius-card);
             box-shadow: var(--shadow-card);
             overflow: hidden;
-            backdrop-filter: blur(2px);
         }
 
-        /* Вкладки */
         .tabs {
             display: flex;
             background: var(--card-white);
@@ -99,7 +95,6 @@
             padding: 24px;
         }
 
-        /* Сводная карточка (остаток) */
         .summary-card {
             background: linear-gradient(145deg, #ffffff, #f0f9ff);
             border-radius: var(--radius-card);
@@ -134,7 +129,6 @@
             font-weight: 700;
         }
 
-        /* Разбивка по сборам */
         .balance-breakdown {
             background: rgba(37, 99, 235, 0.05);
             border-radius: var(--radius-element);
@@ -154,7 +148,6 @@
             border-bottom: none;
         }
 
-        /* Карточка отдельного сбора */
         .collection-item {
             background: var(--card-white);
             border: 1px solid var(--border-light);
@@ -238,7 +231,6 @@
             font-weight: 500;
         }
 
-        /* Кнопки */
         .btn-primary {
             background: var(--accent-royal-blue);
             color: white;
@@ -292,7 +284,6 @@
             background: #fecaca;
         }
 
-        /* Модальные окна */
         .modal {
             display: none;
             position: fixed;
@@ -345,7 +336,6 @@
             line-height: 1;
         }
 
-        /* Формы */
         .form-group {
             margin-bottom: 24px;
         }
@@ -384,7 +374,6 @@
             flex: 1;
         }
 
-        /* Списки участников, транзакций */
         .participant-item, .transaction-item {
             display: flex;
             justify-content: space-between;
@@ -453,7 +442,6 @@
             margin-left: 5px;
         }
 
-        /* Аналитика */
         .analytics-selector {
             display: flex;
             gap: 12px;
@@ -578,7 +566,6 @@
             font-weight: 500;
         }
 
-        /* Чипсы (выбранные участники) */
         .selected-chips {
             display: flex;
             flex-wrap: wrap;
@@ -606,7 +593,6 @@
             font-size: 1.1rem;
         }
 
-        /* Список учеников с чекбоксами */
         .student-list {
             max-height: 240px;
             overflow-y: auto;
@@ -635,7 +621,33 @@
             margin-top: 16px;
         }
 
-        /* Футер */
+        .date-balance-block {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--accent-yellow-soft);
+            border-radius: var(--radius-element);
+            border-left: 6px solid #fbbf24;
+        }
+
+        .date-balance-block h4 {
+            margin-bottom: 15px;
+            color: #854d0e;
+            font-weight: 700;
+        }
+
+        .date-balance-result {
+            margin-top: 15px;
+            font-weight: 700;
+            color: var(--accent-royal-blue);
+        }
+
+        .date-balance-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
         footer {
             text-align: center;
             color: var(--text-muted);
@@ -664,7 +676,6 @@
             background: #f0f9ff;
         }
 
-        /* Скрытые элементы */
         #templateFileInput, #importFile {
             display: none;
         }
@@ -672,14 +683,13 @@
 </head>
 <body>
     <div id="app" class="app-card">
-        <!-- Вкладки -->
         <div class="tabs">
             <div class="tab active" data-tab="collections"><i class="fas fa-wallet"></i> Сборы</div>
             <div class="tab" data-tab="analytics"><i class="fas fa-chart-line"></i> Аналитика</div>
             <div class="tab" data-tab="archive"><i class="fas fa-archive"></i> Архив</div>
         </div>
 
-        <!-- ========== ВКЛАДКА СБОРЫ ========== -->
+        <!-- Вкладка Сборы -->
         <div class="content" id="collections-tab">
             <div class="summary-card">
                 <div class="summary-row">
@@ -695,7 +705,7 @@
             <button class="btn-primary" id="newCollectionBtn"><i class="fas fa-plus-circle"></i> Новый сбор</button>
         </div>
 
-        <!-- ========== ВКЛАДКА АНАЛИТИКА (активные сборы) ========== -->
+        <!-- Вкладка Аналитика -->
         <div class="content" id="analytics-tab" style="display: none;">
             <div class="analytics-selector">
                 <select id="analyticsCollectionSelect">
@@ -703,6 +713,16 @@
                 </select>
                 <button class="export-btn" id="exportCsvBtn"><i class="fas fa-download"></i> CSV</button>
                 <button class="export-btn" id="exportDebtorsBtn"><i class="fas fa-list"></i> Должники</button>
+            </div>
+
+            <!-- Новый блок для просмотра остатка на дату -->
+            <div class="date-balance-block">
+                <h4>📅 Просмотр остатка на дату</h4>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="date" id="balanceDate" style="flex: 1; padding: 12px; border-radius: var(--radius-button); border: 1px solid var(--border-light);">
+                    <button class="btn-secondary" id="showBalanceOnDateBtn">Показать остаток</button>
+                </div>
+                <div id="balanceOnDateResult" class="date-balance-result"></div>
             </div>
 
             <div id="analyticsSummaryTop" class="analytics-summary" style="display: none;">
@@ -750,7 +770,7 @@
             <div id="noCollectionSelected" class="empty-list">Выберите сбор для просмотра аналитики</div>
         </div>
 
-        <!-- ========== ВКЛАДКА АРХИВ (закрытые сборы) ========== -->
+        <!-- Вкладка Архив -->
         <div class="content" id="archive-tab" style="display: none;">
             <div class="analytics-selector">
                 <select id="archiveCollectionSelect">
@@ -804,8 +824,7 @@
             <div id="noArchiveSelected" class="empty-list">Выберите закрытый сбор для просмотра</div>
         </div>
 
-        <!-- ========== МОДАЛЬНЫЕ ОКНА ========== -->
-        <!-- Модалка создания/редактирования сбора -->
+        <!-- Модальные окна -->
         <div class="modal" id="collectionModal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -833,7 +852,7 @@
                 <div class="form-group">
                     <label>Участники сбора</label>
                     <div style="display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
-                        <button class="btn-secondary" id="loadTemplateBtn">📋 Шаблон (Иванов, Петров, Сидоров)</button>
+                        <button class="btn-secondary" id="loadTemplateBtn">📋 Шаблон</button>
                         <button class="btn-secondary" id="loadFromFileBtn">📂 Загрузить из файла .txt</button>
                     </div>
                     <div style="margin-bottom: 10px;">
@@ -852,7 +871,6 @@
             </div>
         </div>
 
-        <!-- Детали сбора -->
         <div class="modal" id="collectionDetailModal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -866,7 +884,6 @@
             </div>
         </div>
 
-        <!-- Редактирование операции -->
         <div class="modal" id="editTransactionModal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -893,7 +910,6 @@
             </div>
         </div>
 
-        <!-- Просмотр чека -->
         <div class="modal" id="receiptModal">
             <div class="modal-content" style="text-align: center;">
                 <div class="modal-header">
@@ -904,7 +920,6 @@
             </div>
         </div>
 
-        <!-- Управление списком класса -->
         <div class="modal" id="globalStudentsModal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -920,7 +935,6 @@
             </div>
         </div>
 
-        <!-- Перенос остатка -->
         <div class="modal" id="transferModal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -935,7 +949,6 @@
             </div>
         </div>
 
-        <!-- Футер -->
         <footer>
             <button id="manageGlobalStudentsBtn"><i class="fas fa-users"></i> Управление списком класса</button>
             <button id="exportDataBtn"><i class="fas fa-download"></i> Экспорт данных</button>
@@ -944,25 +957,22 @@
         </footer>
     </div>
 
-    <!-- ========== ПОЛНОСТЬЮ РАБОЧИЙ JAVASCRIPT (логика приложения) ========== -->
     <script>
         (function() {
             const STORAGE_KEY = 'class_fund_collections';
             const GLOBAL_STUDENTS_KEY = 'global_students';
-            const THEME_KEY = 'theme';
 
             let collections = [];
             let globalStudents = [];
 
-            let selectedCollectionId = null;      // для активной аналитики
-            let selectedArchiveId = null;          // для архива
+            let selectedCollectionId = null;
+            let selectedArchiveId = null;
             let currentDetailCollectionId = null;
             let editCollectionId = null;
             let editingTransaction = null;
             let sourceCollectionIdForTransfer = null;
 
-            // DOM элементы (все из разметки выше)
-            const themeToggle = document.getElementById('themeToggle'); // удалено, но оставим для совместимости
+            // DOM элементы
             const tabs = document.querySelectorAll('.tab');
             const collectionsTab = document.getElementById('collections-tab');
             const analyticsTab = document.getElementById('analytics-tab');
@@ -1059,9 +1069,10 @@
             const targetCollectionSelect = document.getElementById('targetCollectionSelect');
             const confirmTransferBtn = document.getElementById('confirmTransferBtn');
 
-            // Тема (отключена, оставим заглушку)
-            function loadTheme() {}
-            themeToggle?.addEventListener('click', () => {});
+            // Элементы для остатка на дату
+            const balanceDateInput = document.getElementById('balanceDate');
+            const showBalanceOnDateBtn = document.getElementById('showBalanceOnDateBtn');
+            const balanceOnDateResult = document.getElementById('balanceOnDateResult');
 
             // Загрузка данных
             function loadData() {
@@ -1073,38 +1084,8 @@
                         collections = [];
                     }
                 } else {
-                    collections = [
-                        {
-                            id: '1',
-                            name: 'театр',
-                            target: 5000,
-                            perPerson: 500,
-                            status: 'active',
-                            autoClose: false,
-                            participants: [
-                                { id: 's1', name: 'Иванов' },
-                                { id: 's2', name: 'Петров' },
-                                { id: 's3', name: 'Сидорова' }
-                            ],
-                            transactions: [
-                                { id: 't1', participantId: 's1', amount: 500, date: '2025-03-01', comment: '', receipt: null },
-                                { id: 't2', participantId: 's2', amount: 500, date: '2025-03-02', comment: '', receipt: null },
-                                { id: 't3', participantId: null, amount: -300, date: '2025-03-03', comment: 'подарок', receipt: null }
-                            ]
-                        },
-                        {
-                            id: '2',
-                            name: 'ежегодный',
-                            target: 0,
-                            perPerson: null,
-                            status: 'active',
-                            autoClose: false,
-                            participants: [],
-                            transactions: [
-                                { id: 't4', participantId: null, amount: 3000, date: '2025-03-04', comment: 'взносы', receipt: null }
-                            ]
-                        }
-                    ];
+                    // Пустой массив вместо тестовых данных
+                    collections = [];
                 }
 
                 const storedStudents = localStorage.getItem(GLOBAL_STUDENTS_KEY);
@@ -1115,11 +1096,7 @@
                         globalStudents = [];
                     }
                 } else {
-                    globalStudents = [
-                        { id: 's1', name: 'Иванов' },
-                        { id: 's2', name: 'Петров' },
-                        { id: 's3', name: 'Сидорова' }
-                    ];
+                    globalStudents = [];
                 }
             }
 
@@ -1208,6 +1185,64 @@
                 if (checkAutoClose(collection)) {
                     collection.status = 'closed';
                 }
+            }
+
+            // Функция для расчёта баланса на определённую дату
+            function calculateBalanceOnDate(collection, targetDate) {
+                const targetDateTime = new Date(targetDate).setHours(23, 59, 59, 999);
+                
+                let income = 0;
+                let expense = 0;
+                
+                collection.transactions.forEach(t => {
+                    const transactionDate = new Date(t.date).getTime();
+                    if (transactionDate <= targetDateTime) {
+                        if (t.amount > 0) {
+                            income += t.amount;
+                        } else {
+                            expense += Math.abs(t.amount);
+                        }
+                    }
+                });
+                
+                return {
+                    balance: income - expense,
+                    income,
+                    expense
+                };
+            }
+
+            // Обработчик для кнопки "Показать остаток"
+            if (showBalanceOnDateBtn) {
+                showBalanceOnDateBtn.addEventListener('click', () => {
+                    const collectionId = analyticsCollectionSelect.value;
+                    if (!collectionId) {
+                        alert('Сначала выберите сбор');
+                        return;
+                    }
+                    
+                    const dateInput = balanceDateInput.value;
+                    if (!dateInput) {
+                        alert('Выберите дату');
+                        return;
+                    }
+                    
+                    const collection = collections.find(c => c.id === collectionId);
+                    if (!collection) return;
+                    
+                    const result = calculateBalanceOnDate(collection, dateInput);
+                    
+                    balanceOnDateResult.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                            <span>💰 Остаток на ${new Date(dateInput).toLocaleDateString('ru-RU')}:</span>
+                            <span style="font-size: 1.4rem; color: var(--accent-royal-blue);">${formatCurrency(result.balance)}</span>
+                        </div>
+                        <div class="date-balance-details">
+                            <span>📈 Собрано: ${formatCurrency(result.income)}</span>
+                            <span>📉 Потрачено: ${formatCurrency(result.expense)}</span>
+                        </div>
+                    `;
+                });
             }
 
             function updateCollectionsSummary() {
@@ -1373,17 +1408,8 @@
             }
 
             loadTemplateBtn.addEventListener('click', () => {
-                const templateNames = ['Иванов', 'Петров', 'Сидоров'];
-                templateNames.forEach(name => {
-                    let student = globalStudents.find(s => s.name === name);
-                    if (!student) {
-                        student = { id: generateId(), name };
-                        globalStudents.push(student);
-                    }
-                });
-                saveData();
-                const idsToSelect = globalStudents.filter(s => templateNames.includes(s.name)).map(s => s.id);
-                renderGlobalStudentList(idsToSelect);
+                // Пустой шаблон, без предустановленных фамилий
+                alert('Добавьте учеников вручную или загрузите из файла');
             });
 
             loadFromFileBtn.addEventListener('click', () => {
