@@ -4,14 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Классные сборы</title>
+    
+    <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Иконки для iOS (разных размеров) -->
     <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-192.png">
+    
+    <!-- Настройки для iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Классные сборы">
+    
+    <!-- Цвет темы для браузера -->
+    <meta name="theme-color" content="#2563eb">
+    
     <!-- Modern font Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         :root {
             --bg-soft-blue: #e6f0fa;
@@ -623,6 +639,7 @@
 
         .date-balance-block {
             margin-top: 20px;
+            margin-bottom: 30px;
             padding: 20px;
             background: var(--accent-yellow-soft);
             border-radius: var(--radius-element);
@@ -1084,7 +1101,6 @@
                         collections = [];
                     }
                 } else {
-                    // Пустой массив вместо тестовых данных
                     collections = [];
                 }
 
@@ -1408,7 +1424,6 @@
             }
 
             loadTemplateBtn.addEventListener('click', () => {
-                // Пустой шаблон, без предустановленных фамилий
                 alert('Добавьте учеников вручную или загрузите из файла');
             });
 
